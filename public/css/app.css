@@ -1,0 +1,187 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap);
+body {
+  background-color: #fcfcfc;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255, 193, 7, 0.3098039216), #ffc107, rgba(255, 193, 7, 0.3098039216));
+}
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 10px;
+}
+
+main {
+  min-height: 50vh;
+}
+
+.banner .img_holder img {
+  width: 680px;
+}
+
+.breadcrumbs small {
+  color: #868695;
+}
+.breadcrumbs a {
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  color: #868695;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.breadcrumbs a:hover {
+  color: #242424;
+  border-color: #242424;
+}
+
+.card_holder .card {
+  width: 300px;
+}
+.card_holder .card .card-body {
+  position: relative;
+}
+.card_holder .card .card-body .quick_view {
+  position: absolute;
+  top: -38%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.4666666667);
+  opacity: 0;
+}
+.card_holder .card .card-body .quick_view:hover {
+  background-color: rgba(255, 255, 255, 0.7764705882);
+  cursor: pointer;
+}
+.card_holder .card:hover .card-body .quick_view {
+  opacity: 1;
+}
+.card_holder .learn-more {
+  display: none;
+  width: 800px;
+  margin: 50px auto 0;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  color: #222;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+}
+@media (min-width: 1600px) {
+  .card_holder .learn-more {
+    width: 1000px;
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 850px) {
+  .card_holder .learn-more {
+    width: 92%;
+    font-size: 0.9em;
+  }
+}
+.card_holder .learn-more .close {
+  float: right;
+  width: 120px;
+  height: 30px;
+  border: 0;
+  text-transform: none;
+  color: #222;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+.card_holder .learn-more .close:hover {
+  color: silver;
+}
+.card_holder .learn-more img {
+  width: 100%;
+}
+.card_holder .learn-more p {
+  padding: 0 10px 50px;
+}
+.card_holder .learn-more p b {
+  color: silver;
+}
+.card_holder .learn-more .go-to {
+  display: none;
+  margin: 0 auto;
+  padding: 0 5px;
+  height: 30px;
+  font-size: 0.9em;
+  text-transform: none;
+  border: 3px solid silver;
+  transition: all 500ms ease;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  overflow: hidden;
+}
+.card_holder .learn-more .go-to.site {
+  left: 10px;
+}
+.card_holder .learn-more .go-to.github {
+  right: 10px;
+}
+.card_holder .learn-more .go-to a {
+  color: #222;
+}
+
+.product_added {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.products {
+  margin-top: 20px;
+  position: relative;
+}
+.products .row_prod {
+  width: 100%;
+  background-color: #eee;
+  overflow: hidden;
+}
+.products .row_prod img {
+  width: 100px;
+}
+.products .row_prod span {
+  display: inline-block;
+}
+.products .row_prod > div .item-count .button {
+  width: 40px;
+  height: 40px;
+  background-color: #eee;
+  color: #333;
+  transition: all 500ms ease;
+}
+.products .row_prod > div .item-count .button:not([disabled]):hover {
+  background-color: #aaa;
+  color: #000;
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+}
+.products .row_prod > div .item-count .button[disabled]:hover {
+  background-color: #eee;
+  color: #333;
+  cursor: auto;
+}
+.products .row_prod .del-item .btn {
+  width: 40px;
+  background-color: #eee;
+  color: #333;
+  transition: all 500ms ease;
+}
+.products .row_prod .del-item .btn:hover {
+  color: red;
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+}
