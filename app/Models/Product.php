@@ -12,9 +12,9 @@ class Product extends Model
     public $timestamps = false;
 
     // Отношение "один ко многим"
-    public function image()
+    public function reviews()
     {
-        return $this->hasMany('App\Models\ProductImage');
+        return $this->hasMany('App\Models\Review');
     }
 
     // Получение записей для корзины

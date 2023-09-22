@@ -163,7 +163,6 @@ return [
         'email' => 'Email',
         'password' => 'Пароль',
         'password-confirm' => 'Подтверждение пароля',
-        'comment' => 'Коментарий'
+        'review' => 'Отзыв'
     ],
-
 ];

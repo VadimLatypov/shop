@@ -17,10 +17,18 @@
     </div>
 @endif
 
+@if(session('warning'))
+    <div class="row justify-content-center mt-3">
+        <div class="alert alert-warning mess_success">
+            {{ session('warning') }}
+        </div>
+    </div>
+@endif
+
 @if(session('error'))
     <div class="row justify-content-center mt-3">
         <div class="alert alert-danger">
-            {{ $item }}
+            {{ session('error') }}
         </div>
     </div>
 @endif

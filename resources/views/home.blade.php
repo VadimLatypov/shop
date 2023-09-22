@@ -20,6 +20,7 @@
     @endif
     <p>Привет, {{ auth()->user()->name }}</p>
     <p>{{ auth()->user()->email }}</p>
+    
     {{-- Форма для выхода из учетной записи --}}
     <form action="/logout" method="POST" class="d-inline-block">
         @csrf

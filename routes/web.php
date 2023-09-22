@@ -3,17 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', 'StaticController@index');
 
 // Категории и подкатегории
@@ -34,6 +23,9 @@ Route::get('/category/home/bedroom', 'CategoryController@homeBedroom');
 
 // Страница товара
 Route::get('/product/{id}','ProductsController@show');
+Route::post('/product/{id}/review-add','ReviewsController@store');
+Route::post('/product/find','ProductsController@find');
+Route::get('/review/delete/{id}', 'ReviewsController@destroy');
 
 // Авторизация и регистрация
 Auth::routes();

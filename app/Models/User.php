@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Отношение "один ко многим"
+    public function reviews()
+    {
+        return $this->hasMany('App\Models\Review');
+    }
 }

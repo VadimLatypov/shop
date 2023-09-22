@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
 </head>
 <body>
+    {{-- Шапка --}}
     <header class="p-3 text-bg-dark">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 me-5 text-white text-decoration-none display-6 ">SHOP</a>
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 me-lg-5 text-white text-decoration-none display-6 ">SHOP</a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="/category/man" class="nav-link px-2 text-white">Мужчинам</a></li>
@@ -27,8 +28,8 @@
                     <li><a href="/category/home" class="nav-link px-2 text-white">Для дома</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-light" placeholder="Я ищу...">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/?подушка" method="get">
+                    <input class="form-control form-control-dark text-bg-light" placeholder="Я ищу...">
                 </form>
 
                 <div class="text-end">
@@ -47,11 +48,13 @@
         </div>
     </header>
 
+    {{-- Основная часть --}}
     <main class="container">
         @include('blocks/messages')
         @yield('content')
     </main>
 
+    {{-- Футер --}}
     <div class="text-bg-dark">
         <div class="container pt-3">
             <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 mt-5 border-top">
@@ -92,13 +95,33 @@
         </div>
     </div>
     
+    {{-- Сообщение --}}
     <div class="alert alert-success product_added w-25 text-center">
         Товар добален в корзину <i class="fa-solid fa-check"></i>
     </div>
 
+    {{-- Поиск на сайте --}}
+    <div class="mask w-100 h-100"></div>
+    <div class="search">
+        <form action="/product/find" method="post" class="form-control mb-4">
+            @csrf
+            <h2 class="text-center mt-2 mb-5">Форма поиска</h2>
+            <button type="button" class="btn close m-2"><i class="fa-solid fa-xmark"></i></button>
+            <div class="d-flex align-items-top mb-2">
+                <input type="text" name="find" class="form-control d-block border border-1 rounded-2 px-2 me-3" placeholder="Поиск" autocomplete="off">
+                <button type="submit" class="btn btn-warning">Найти</button>
+            </div>
+        </form>
+    </div>
+
+    {{-- Кнопки перехода вверх/вниз по странице --}}
+    <button id="downBtn" class="btn btn-secondary"><i class="fa-solid fa-chevron-down"></i></button>
+    <button id="upBtn" class="btn btn-secondary"><i class="fa-solid fa-chevron-up"></i></button>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="{{ asset('js/options.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('bootstrap_js/bootstrap.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/c0c3afc1db.js" crossorigin="anonymous"></script>
 
     <script>

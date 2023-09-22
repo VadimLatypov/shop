@@ -8,15 +8,16 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('product_images', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->integer('product_id');
-            $table->string('img');
+            $table->integer('user_id');
+            $table->mediumText('text');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('product_images');
+        Schema::dropIfExists('reviews');
     }
 };

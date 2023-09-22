@@ -56,6 +56,17 @@ main {
 .card_holder {
     .card {
         width: 300px;
+        overflow: hidden;
+
+        img {
+            transition: transform 500ms ease;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.05) translateY(-6px);
+            }
+        }
     
         .card-body {
             position: relative;
@@ -78,75 +89,51 @@ main {
             opacity: 1;
         }
     }
+}
 
-    .learn-more {
-        display: none;
-        width: 800px;
-        margin: 50px auto 0;
-        box-sizing: border-box;
-        background-color: #fafafa;
-        color: #222;
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 300;
+// Просмотр товара
+.reviews {
+    .no_reviews {
+        color: #a63f3f;
+        margin-bottom: 30px;
+    }
 
-        @media (min-width: 1600px) {
-            width: 1000px;
-            font-size: 1.2em;
-        }
-        @media (max-width: 850px) {
-            width: 92%;
-            font-size: 0.9em;
-        }
-
-        .close {
-            float: right;
-            width: 120px;
-            height: 30px;
-            border: 0;
-            text-transform: none;
-            color: #222;
+    .one_review {
+        background-color: #eee;
+        
+        .del-item button {
+            width: 40px;
+            background-color: #eee;
+            color: #333;
             transition: all 500ms ease;
-            cursor: pointer;
 
             &:hover {
-                color: silver;
+                color: red;
+                transform: scale(1.05) translateY(-5px);
+                box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
             }
         }
+    }
 
-        img {width: 100%}
+    .review-form {
+        textarea {
+            height: 100px;
+            resize: none;
 
-        p {
-            padding: 0 10px 50px;
-
-            b {color: silver;}
-        }
-
-        .go-to {
-            display: none;
-            margin: 0 auto;
-            padding: 0 5px;
-            height: 30px;
-            font-size: 0.9em;
-            text-transform: none;
-            border: 3px solid silver;
-            transition: all 500ms ease;
-            cursor: pointer;
-            position: absolute;
-            bottom: 10px;
-            overflow: hidden;
-
-            &.site {
-                left: 10px;
+            &::-webkit-scrollbar {
+                width: 10px;
             }
-
-            &.github {
-                right: 10px;
+        
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: linear-gradient(180deg, #ffc1074f, #ffc107, #ffc1074f);
             }
-
-            a {color: #222;}
+        
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+                background-color: #f9f9fd;
+                border-radius: 10px;
+            }
         }
     }
 }
@@ -213,3 +200,66 @@ main {
         }
     }
 }
+
+/* Форма поиска */
+.search {
+    display: none;
+    width: 64%;
+    margin: 100px 18% 0;
+    position: relative;
+
+    @media (max-width: 576px) {
+        width: 90%;
+        margin: 80px 5%;
+    }
+
+    .btn.close {
+        width: 40px;
+        background-color: #eee;
+        color: #333;
+        transition: all 500ms ease;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        &:hover {
+            color: red;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.mask {
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 250;
+}
+
+.search-show {
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: 260;
+}
+
+/* Кнопка наверх */
+#upBtn,
+#downBtn {
+    display: none;
+    position: fixed;
+    left: 35px;
+    bottom: 35px;
+    border: 0;
+    text-align: center;
+    background-color: #ababab;
+    font-size: 20px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 500ms ease;
+}
+
+#upBtn:hover,
+#downBtn:hover {opacity: 1;}

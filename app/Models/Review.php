@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductImage extends Model
+class Review extends Model
 {
     use HasFactory;
     public $timestamps = false;
@@ -14,5 +14,11 @@ class ProductImage extends Model
     public function product()
     {
         return $this->belongsTo('App\Models\Product');
+    }
+
+    // Отношения "один к одному"
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
 }

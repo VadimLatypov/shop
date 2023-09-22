@@ -52,12 +52,6 @@
                     </div>
                     <p class="fw-bold">{{ $el->price }} ₽</p>
                     <h6 class="card-title">{{ $el->title }}</h6>
-                    
-                    {{-- <form action="/basket_post" method="POST">
-                        @csrf
-                        <input type="hidden" name="item_id" value="{{ $el->id }}">
-                        <button class="btn btn-outline-dark">В корзину</button>
-                    </form> --}}
 
                     <form>
                         @csrf
