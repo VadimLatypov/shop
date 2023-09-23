@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    // alert("Внимание! Данный сайт исключительно демонстрационный: здесь вы можете выбрать товары, добавить их в корзину, зарегистрироваться. Однако, кнопка покупки товаров не приведет к непосредстенной оплате. Все товары вымешлены, совпадения случайны.")
+    alert("Внимание! Данный сайт исключительно демонстрационный: здесь вы можете выбрать товары, оставить отзывы, добавить их в корзину, зарегистрироваться и произвести иммитацию оплаты. Однако, кнопка покупки товаров не приведет к непосредстенной оплате. Все товары вымешлены, совпадения случайны.")
 
     // Сообщение успех
     if($('.mess_success')) {
@@ -12,11 +12,14 @@ $(document).ready(() => {
     $('header input').on('focus', () => {
         $('.search').addClass('search-show');
         $('.mask').fadeIn('fast');
+        $('header input').blur();
+        $('.search form input').focus();
     })
 
     const closeSearch = () => {
         $('.search').removeClass('search-show');
         $('.mask').fadeOut('fast');
+        $('.search form input').blur();
     }
     
     $('.mask').click(() => {
@@ -27,11 +30,15 @@ $(document).ready(() => {
         closeSearch();
     })
 
-    // Запуск функции показа кнопки
-    $(window).scroll(showImage)
+    // Запуск функции показа кнопки наверх
+    if($(window).width() > 1024) {
+        $(window).scroll(showImage);
+    }
 });
 
 // Скрыть/показать кнопку наверх от скролла
+var temp = false;
+
 const showImage = () => {
     scrollTop = window.scrollY
     if(scrollTop == 0 && temp) {

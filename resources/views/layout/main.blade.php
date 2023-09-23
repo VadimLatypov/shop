@@ -96,7 +96,7 @@
     </div>
     
     {{-- Сообщение --}}
-    <div class="alert alert-success product_added w-25 text-center">
+    <div class="alert alert-success product_added text-center">
         Товар добален в корзину <i class="fa-solid fa-check"></i>
     </div>
 

@@ -28,8 +28,18 @@ main {
     min-height: 50vh;
 }
 
-.banner .img_holder img {
-    width: 680px;
+.banner .carousel-inner .carousel-item {
+    @media (max-width: 576px) {
+        font-size: 0.8em;
+
+        p:first-of-type {
+            display: none;
+        }
+
+        .btn {
+            font-size: 1.2em;
+        }
+    }
 }
 
 .breadcrumbs {
@@ -50,6 +60,14 @@ main {
             border-color: #242424;
         }
     }   
+}
+
+// Категории товаров (адаптивность)
+@media (max-width: 1024px) {
+    .category {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 // Карточки товаров
@@ -92,6 +110,23 @@ main {
 }
 
 // Просмотр товара
+@media (min-width: 768px) {
+    .image_holder {
+        z-index: 260;
+        
+        img {
+            transition: transform 500ms ease;
+        }
+    
+        &:hover {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+// Просмотр товара (отзывы)
 .reviews {
     .no_reviews {
         color: #a63f3f;
@@ -106,11 +141,13 @@ main {
             background-color: #eee;
             color: #333;
             transition: all 500ms ease;
-
-            &:hover {
-                color: red;
-                transform: scale(1.05) translateY(-5px);
-                box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+            
+            @media (min-width: 1024px) {
+                &:hover {
+                    color: red;
+                    transform: scale(1.05) translateY(-5px);
+                    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+                }
             }
         }
     }
@@ -142,9 +179,17 @@ main {
 .product_added {
     display: none;
     position: fixed;
+    width: 25%;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
+
+    @media (max-width: 1100px) {
+        width: 60%;
+    }
+    @media (max-width: 470px) {
+        width: 90%;
+    }
 }
 
 // Корзина
@@ -157,7 +202,9 @@ main {
         background-color: #eee;
         overflow: hidden;
 
-        img {width: 100px;}
+        img {
+            width: 100px;
+        }
 
         span {
             display: inline-block;
@@ -165,24 +212,26 @@ main {
             // min-width: 70px;
         }
 
-        > div .item-count .button {
+        .item-count .button {
             width: 40px;
             height: 40px;
             background-color: #eee;
             color: #333;
             transition: all 500ms ease;
 
-            &:not([disabled]):hover {
-                background-color: #aaa;
-                color: #000;
-                transform: scale(1.05) translateY(-5px);
-                box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
-            }
-
-            &[disabled]:hover {
-                background-color: #eee;
-                color: #333;
-                cursor: auto;
+            @media (min-width: 1024px) {
+                &:not([disabled]):hover {
+                    background-color: #aaa;
+                    color: #000;
+                    transform: scale(1.05) translateY(-5px);
+                    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+                }
+    
+                &[disabled]:hover {
+                    background-color: #eee;
+                    color: #333;
+                    cursor: auto;
+                }
             }
         }
 
@@ -192,10 +241,24 @@ main {
             color: #333;
             transition: all 500ms ease;
 
-            &:hover {
-                color: red;
-                transform: scale(1.05) translateY(-5px);
-                box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+            @media (min-width: 1024px) {
+                &:hover {
+                    color: red;
+                    transform: scale(1.05) translateY(-5px);
+                    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+                }
+            }
+        }
+
+        @media (max-width: 576px) {
+            flex-wrap: wrap;
+
+            img {
+                width: 70px;
+            }
+
+            > div {
+                width: 100%;
             }
         }
     }
@@ -213,18 +276,41 @@ main {
         margin: 80px 5%;
     }
 
-    .btn.close {
-        width: 40px;
-        background-color: #eee;
-        color: #333;
-        transition: all 500ms ease;
-        position: absolute;
-        top: 0;
-        right: 0;
+    form {
+        .btn.close {
+            width: 40px;
+            background-color: #eee;
+            color: #333;
+            transition: all 500ms ease;
+            position: absolute;
+            top: 0;
+            right: 0;
+    
+            @media (max-width: 576px) {
+                padding: 3px;
+                width: 30px;
+                height: 30px;
+            }
+    
+            &:hover {
+                color: red;
+                transform: scale(1.05);
+            }
+        }
 
-        &:hover {
-            color: red;
-            transform: scale(1.05);
+        > div {
+            @media (max-width: 576px) {
+                display: flex;
+                flex-wrap: wrap;
+
+                input {
+                    margin-bottom: 20px;
+                }
+
+                .btn {
+                    margin: auto;
+                }
+            }
         }
     }
 }
@@ -259,7 +345,28 @@ main {
     opacity: 0.5;
     cursor: pointer;
     transition: opacity 500ms ease;
+
+    @media (min-width: 1024px) and (max-width: 1460px) {
+        left: 10px;
+        font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
 }
 
 #upBtn:hover,
 #downBtn:hover {opacity: 1;}
+
+
+// Футер, адаптивность
+footer {
+    @media (max-width: 768px) {
+        > div:not(:first-of-type) {
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+    }
+}

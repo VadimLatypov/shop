@@ -23,8 +23,16 @@ main {
   min-height: 50vh;
 }
 
-.banner .img_holder img {
-  width: 680px;
+@media (max-width: 576px) {
+  .banner .carousel-inner .carousel-item {
+    font-size: 0.8em;
+  }
+  .banner .carousel-inner .carousel-item p:first-of-type {
+    display: none;
+  }
+  .banner .carousel-inner .carousel-item .btn {
+    font-size: 1.2em;
+  }
 }
 
 .breadcrumbs small {
@@ -43,6 +51,12 @@ main {
   border-color: #242424;
 }
 
+@media (max-width: 1024px) {
+  .category {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 .card_holder .card {
   width: 300px;
   overflow: hidden;
@@ -71,6 +85,17 @@ main {
   opacity: 1;
 }
 
+@media (min-width: 768px) {
+  .image_holder {
+    z-index: 260;
+  }
+  .image_holder img {
+    transition: transform 500ms ease;
+  }
+  .image_holder:hover img {
+    transform: scale(1.2);
+  }
+}
 .reviews .no_reviews {
   color: #a63f3f;
   margin-bottom: 30px;
@@ -84,10 +109,12 @@ main {
   color: #333;
   transition: all 500ms ease;
 }
-.reviews .one_review .del-item button:hover {
-  color: red;
-  transform: scale(1.05) translateY(-5px);
-  box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+@media (min-width: 1024px) {
+  .reviews .one_review .del-item button:hover {
+    color: red;
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+  }
 }
 .reviews .review-form textarea {
   height: 100px;
@@ -109,9 +136,20 @@ main {
 .product_added {
   display: none;
   position: fixed;
+  width: 25%;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
+}
+@media (max-width: 1100px) {
+  .product_added {
+    width: 60%;
+  }
+}
+@media (max-width: 470px) {
+  .product_added {
+    width: 90%;
+  }
 }
 
 .products {
@@ -129,23 +167,25 @@ main {
 .products .row_prod span {
   display: inline-block;
 }
-.products .row_prod > div .item-count .button {
+.products .row_prod .item-count .button {
   width: 40px;
   height: 40px;
   background-color: #eee;
   color: #333;
   transition: all 500ms ease;
 }
-.products .row_prod > div .item-count .button:not([disabled]):hover {
-  background-color: #aaa;
-  color: #000;
-  transform: scale(1.05) translateY(-5px);
-  box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
-}
-.products .row_prod > div .item-count .button[disabled]:hover {
-  background-color: #eee;
-  color: #333;
-  cursor: auto;
+@media (min-width: 1024px) {
+  .products .row_prod .item-count .button:not([disabled]):hover {
+    background-color: #aaa;
+    color: #000;
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+  }
+  .products .row_prod .item-count .button[disabled]:hover {
+    background-color: #eee;
+    color: #333;
+    cursor: auto;
+  }
 }
 .products .row_prod .del-item .btn {
   width: 40px;
@@ -153,10 +193,23 @@ main {
   color: #333;
   transition: all 500ms ease;
 }
-.products .row_prod .del-item .btn:hover {
-  color: red;
-  transform: scale(1.05) translateY(-5px);
-  box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+@media (min-width: 1024px) {
+  .products .row_prod .del-item .btn:hover {
+    color: red;
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+  }
+}
+@media (max-width: 576px) {
+  .products .row_prod {
+    flex-wrap: wrap;
+  }
+  .products .row_prod img {
+    width: 70px;
+  }
+  .products .row_prod > div {
+    width: 100%;
+  }
 }
 
 /* Форма поиска */
@@ -172,7 +225,7 @@ main {
     margin: 80px 5%;
   }
 }
-.search .btn.close {
+.search form .btn.close {
   width: 40px;
   background-color: #eee;
   color: #333;
@@ -181,9 +234,28 @@ main {
   top: 0;
   right: 0;
 }
-.search .btn.close:hover {
+@media (max-width: 576px) {
+  .search form .btn.close {
+    padding: 3px;
+    width: 30px;
+    height: 30px;
+  }
+}
+.search form .btn.close:hover {
   color: red;
   transform: scale(1.05);
+}
+@media (max-width: 576px) {
+  .search form > div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .search form > div input {
+    margin-bottom: 20px;
+  }
+  .search form > div .btn {
+    margin: auto;
+  }
 }
 
 .mask {
@@ -217,8 +289,29 @@ main {
   cursor: pointer;
   transition: opacity 500ms ease;
 }
+@media (min-width: 1024px) and (max-width: 1460px) {
+  #upBtn,
+  #downBtn {
+    left: 10px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 1024px) {
+  #upBtn,
+  #downBtn {
+    display: none;
+  }
+}
 
 #upBtn:hover,
 #downBtn:hover {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  footer > div:not(:first-of-type) {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
 }

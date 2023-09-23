@@ -28,7 +28,7 @@
                         <img class="rounded-lg-3 w-100" src="{{ asset('img/products/свеча.png') }}">
                         <div class="container">
                             <div class="carousel-caption text-start">
-                                <h1>Аромасвечи.</h1>
+                                <h2>Аромасвечи.</h2>
                                 <p class="opacity-75">Эта ароматическая свеча наполняет ваш дом теплым и приятным ароматом, создавая расслабляющую атмосферу и поднимая настроение.</p>
                                 <p><a class="btn btn-lg btn-primary" href="/product/9">Смотреть</a></p>
                             </div>
@@ -38,9 +38,9 @@
                         <img class="rounded-lg-3 w-100" src="{{ asset('img/products/декор подушка 2.jpeg') }}">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h1>Декоративная подушка.</h1>
+                                <h2>Декоративная подушка.</h2>
                                 <p>Эта декоративная подушка станет ярким акцентом в вашем интерьере, создавая уют и комфорт и добавляя индивидуальности к вашему дому.</p>
-                                <p><a class="btn btn-lg btn-primary" href="/product/7">Узнать больше</a></p>
+                                <p><a class="btn btn-primary" href="/product/7">Узнать больше</a></p>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                         <img class="rounded-lg-3 w-100" src="{{ asset('img/products/диффузор.jpeg') }}">
                         <div class="container">
                             <div class="carousel-caption text-end">
-                                <h1>Диффузор с ароматическим маслом.</h1>
+                                <h2>Диффузор с ароматическим маслом.</h2>
                                 <p>Этот стильный диффузор с ароматическими маслами помогает создать уютную атмосферу в вашем доме, наполняя его нежными и приятными ароматами.</p>
                                 <p><a class="btn btn-lg btn-primary" href="/product/1">Подробнее</a></p>
                             </div>

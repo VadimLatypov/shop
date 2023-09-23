@@ -34,43 +34,40 @@
             ?>
                 <div class="row_prod row_prod_<?=$products[$i]['id']?> d-flex justify-content-between align-items-center rounded-3 pe-3 mb-3">
                     <img src="img/products/<?=$products[$i]['img_main']?>" alt="<?=$products[$i]['title']?>">
-                    <h4 class="w-50"><?=$products[$i]['title']?></h4>
+                    <h4 class="col-md-6 col-sm-4 col-xs-3"><?=$products[$i]['title']?></h4>
                     <span class="item_sum_<?=$products[$i]['id']?>"><?=$products[$i]['price'] * $products_count[$products[$i]['id']]?> ₽</span>
                     
-                    <div class="d-flex align-items-center">
-                        <!-- Уменьшить количество товаров -->
-                        {{-- <form action="/basket_post" method="POST" class="item-count"> --}}
-                        <form class="item-count">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <!-- Уменьшить количество товаров -->
+                            <form class="item-count">
+                                @csrf
+                                <input type="hidden" name="item_minus" value="<?=$products[$i]['id']?>">
+                                <?php if($products_count[$products[$i]['id']] == 1): ?>
+                                    <button type="button" class="button border-0 rounded-3 me-2 item_minus item_minus_<?=$products[$i]['id']?>" onclick="reduceItem(<?=$products[$i]['id']?>, <?=$products[$i]['price']?>)" disabled><i class="fa-solid fa-minus"></i></button>
+                                <?php else: ?>
+                                    <button type="button" class="button border-0 rounded-3 me-2 item_minus item_minus_<?=$products[$i]['id']?>" onclick="reduceItem(<?=$products[$i]['id']?>, <?=$products[$i]['price']?>)"><i class="fa-solid fa-minus"></i></button>
+                                <?php endif; ?>
+                            </form>
+    
+                            <span class="item_count_<?=$products[$i]['id']?>"><?=$products_count[$products[$i]['id']]?></span>
+    
+                            
+                            <!-- Увеличить количество товаров -->
+                            <form class="item-count">
+                                @csrf
+                                <input type="hidden" name="item_plus" value="<?=$products[$i]['id']?>">
+                                <button type="button" class="button border-0 rounded-3 ms-2" onclick="addItem(<?=$products[$i]['id']?>, <?=$products[$i]['price']?>)"><i class="fa-solid fa-plus"></i></button>
+                            </form>
+                        </div>
+    
+                        <!-- Удаление элемента -->
+                        <form action="/basket_post" method="POST" class="del-item">
                             @csrf
-                            <input type="hidden" name="item_minus" value="<?=$products[$i]['id']?>">
-                            <?php if($products_count[$products[$i]['id']] == 1): ?>
-                                {{-- <button type="button" class="button border-0 rounded-3 me-2" disabled><i class="fa-solid fa-minus"></i></button> --}}
-                                <button type="button" class="button border-0 rounded-3 me-2 item_minus item_minus_<?=$products[$i]['id']?>" onclick="reduceItem(<?=$products[$i]['id']?>, <?=$products[$i]['price']?>)" disabled><i class="fa-solid fa-minus"></i></button>
-                            <?php else: ?>
-                                {{-- <button type="submit" class="button border-0 rounded-3 me-2"><i class="fa-solid fa-minus"></i></button> --}}
-                                <button type="button" class="button border-0 rounded-3 me-2 item_minus item_minus_<?=$products[$i]['id']?>" onclick="reduceItem(<?=$products[$i]['id']?>, <?=$products[$i]['price']?>)"><i class="fa-solid fa-minus"></i></button>
-                            <?php endif; ?>
-                        </form>
-
-                        <span class="item_count_<?=$products[$i]['id']?>"><?=$products_count[$products[$i]['id']]?></span>
-
-                        
-                        <!-- Увеличить количество товаров -->
-                        {{-- <form action="/basket_post" method="POST" class="item-count"> --}}
-                        <form class="item-count">
-                            @csrf
-                            <input type="hidden" name="item_plus" value="<?=$products[$i]['id']?>">
-                            {{-- <button type="submit" class="button border-0 rounded-3 ms-2"><i class="fa-solid fa-plus"></i></button> --}}
-                            <button type="button" class="button border-0 rounded-3 ms-2" onclick="addItem(<?=$products[$i]['id']?>, <?=$products[$i]['price']?>)"><i class="fa-solid fa-plus"></i></button>
+                            <input type="hidden" name="del_item" value="<?=$products[$i]['id']?>">
+                            <button type="submit" class="btn" title="Удалить из корзины"><i class="fa-solid fa-trash-can"></i></button>                        
                         </form>
                     </div>
-
-                    <!-- Удаление элемента -->
-                    <form action="/basket_post" method="POST" class="del-item">
-                        @csrf
-                        <input type="hidden" name="del_item" value="<?=$products[$i]['id']?>">
-                        <button type="submit" class="btn" title="Удалить из корзины"><i class="fa-solid fa-trash-can"></i></button>                        
-                    </form>
                 </div>
             <?php endfor; ?>
 
