@@ -27,13 +27,15 @@
         <a href="/" class="btn btn-warning">Перейти на главную</a>
     <?php else: ?>
         <div class="products">
+            {{-- Подсчет итоговой суммы --}}
             <?php
                 $sum = 0;
                 for($i = 0; $i < count($products); $i++):
                     $sum += $products[$i]['price'] * $products_count[$products[$i]['id']];
             ?>
+                {{-- Строка товара --}}
                 <div class="row_prod row_prod_<?=$products[$i]['id']?> d-flex justify-content-between align-items-center rounded-3 pe-3 mb-3">
-                    <img src="img/products/<?=$products[$i]['img_main']?>" alt="<?=$products[$i]['title']?>">
+                    <img src="/public/img/products/<?=$products[$i]['img_main']?>" alt="<?=$products[$i]['title']?>">
                     <h4 class="col-md-6 col-sm-4 col-xs-3"><?=$products[$i]['title']?></h4>
                     <span class="item_sum_<?=$products[$i]['id']?>"><?=$products[$i]['price'] * $products_count[$products[$i]['id']]?> ₽</span>
                     

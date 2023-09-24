@@ -25,7 +25,7 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item">
-                        <img class="rounded-lg-3 w-100" src="{{ asset('img/products/свеча.png') }}">
+                        <img class="rounded-lg-3 w-100" src="{{ asset('/public/img/products/свеча.png') }}">
                         <div class="container">
                             <div class="carousel-caption text-start">
                                 <h2>Аромасвечи.</h2>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="carousel-item active carousel-item-start">
-                        <img class="rounded-lg-3 w-100" src="{{ asset('img/products/декор подушка 2.jpeg') }}">
+                        <img class="rounded-lg-3 w-100" src="{{ asset('/public/img/products/декор подушка 2.jpeg') }}">
                         <div class="container">
                             <div class="carousel-caption">
                                 <h2>Декоративная подушка.</h2>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="carousel-item carousel-item-next carousel-item-start">
-                        <img class="rounded-lg-3 w-100" src="{{ asset('img/products/диффузор.jpeg') }}">
+                        <img class="rounded-lg-3 w-100" src="{{ asset('/public/img/products/диффузор.jpeg') }}">
                         <div class="container">
                             <div class="carousel-caption text-end">
                                 <h2>Диффузор с ароматическим маслом.</h2>
@@ -71,11 +71,9 @@
     <div class="card_holder d-flex justify-content-between flex-wrap">
         @foreach ($products as $el)
             <div class="card mb-5">
-                <img src="{{ asset('img/products/' . $el->img_main) }}" class="card-img-top">
+                <img src="{{ asset('/public/img/products/' . $el->img_main) }}" class="card-img-top">
                 <div class="card-body">
-                    <div class="w-100 quick_view text-center p-3">
-                        <a href="/product/{{ $el->id }}" class="nav-link p-0 text-black">Смотреть подробнее</a>
-                    </div>
+                    <a href="/product/{{ $el->id }}" class="d-block w-100 quick_view text-center p-3 nav-link text-black">Смотреть подробнее</a>
                     <p class="fw-bold">{{ $el->price }} ₽</p>
                     <h6 class="card-title mb-3">{{ $el->title }}</h6>
                     

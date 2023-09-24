@@ -11,9 +11,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('page-title')</title>
-    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('bootstrap_css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
+    <link rel="shortcut icon" href="{{ asset('/public/img/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('/public/bootstrap_css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/public/css/app.min.css') }}">
 </head>
 <body>
     {{-- Шапка --}}
@@ -119,9 +119,9 @@
     <button id="upBtn" class="btn btn-secondary"><i class="fa-solid fa-chevron-up"></i></button>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="{{ asset('js/options.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('bootstrap_js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/public/js/options.js') }}"></script>
+    <script src="{{ asset('/public/js/app.js') }}"></script>
+    <script src="{{ asset('/public/bootstrap_js/bootstrap.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/c0c3afc1db.js" crossorigin="anonymous"></script>
 
     <script>

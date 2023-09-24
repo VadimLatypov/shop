@@ -13,7 +13,7 @@
     <div class="card_holder d-flex justify-content-between flex-wrap">
         @foreach ($products as $el)
             <div class="card mb-5">
-                <img src="{{ asset('img/products/' . $el->img_main) }}" class="card-img-top">
+                <img src="{{ asset('/public/img/products/' . $el->img_main) }}" class="card-img-top">
                 <div class="card-body">
                     <div class="w-100 quick_view text-center p-3">
                         <a href="/product/{{ $el->id }}" class="nav-link p-0 text-black">Смотреть подробнее</a>

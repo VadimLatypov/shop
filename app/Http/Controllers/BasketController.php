@@ -59,7 +59,9 @@ class BasketController extends Controller
                 $res += $el;
             }
             
-            if($res > 1)
+            if($res > 1 && count($products_count) == 1)
+                $cart->deleteSession();
+            else if($res > 1 && count($products_count) > 1)
                 $cart->deleteFromCart($_POST['del_item']);
             else
                 $cart->deleteSession();

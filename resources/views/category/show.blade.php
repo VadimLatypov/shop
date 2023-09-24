@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+    {{-- Детальное отображение товара --}}
     <div class="row my-5">
         <div class="col-md-7 order-md-2 offset-1">
             <h2 class="text-center">{{ $product->title }}</h2>
@@ -27,9 +28,10 @@
             </div>
         </div>
         <div class="col-md-4 order-md-1 py-2 image_holder">
-            <img src="{{ asset('img/products/' . $product->img_main) }}" alt="Изображение товара" class="w-100">
+            <img src="{{ asset('/public/img/products/' . $product->img_main) }}" alt="Изображение товара" class="w-100">
         </div>
     </div>
+    {{-- Отзывы на товар --}}
     <div class="reviews mb-5">
         <h3>Отзывы</h3>
         @if (count($reviews) > 0)
@@ -72,21 +74,4 @@
             </form>
         @endguest
     </div>
-@endsection
-
-@section('script')
-    <script>
-        // let image = $('.parallax img');
-        // $('.parallax').on('mousemove', function(e) {
-        //     let x = e.clientX / window.innerWidth;
-        //     let y = e.clientY / window.innerHeight;
-        //     $('.parallax img').css('transform', 'translate(-' + x * 300 + 'px, -' + y * 300 + 'px)');
-        //     // console.log('translate(-' + x * 300 + 'px, -' + y * 300 + 'px)');
-        //     var offset = $('.parallax img').offset();
-        //     var top = offset.top;
-        //     var left = offset.left;
-        //     // console.log(x);
-        // });
-        
-    </script>
 @endsection
