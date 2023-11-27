@@ -10,7 +10,7 @@ class BasketController extends Controller
 {
     public function index() {
         $data = [
-            'title' => 'Личный кабинет',
+            'title' => 'Корзина товаров',
             'basket_count' => $this->basket_count()
         ];
         

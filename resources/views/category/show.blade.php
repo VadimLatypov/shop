@@ -11,7 +11,7 @@
 @section('content')
     {{-- Детальное отображение товара --}}
     <div class="row my-5">
-        <div class="col-md-7 order-md-2 offset-1">
+        <div class="col-md-7 order-md-2 offset-md-1">
             <h2 class="text-center">{{ $product->title }}</h2>
             <p class="lead">{{ $product->anons }}</p>
             <div class="d-flex">
