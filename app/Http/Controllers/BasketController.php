@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Basket;
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class BasketController extends Controller
 {
@@ -74,5 +73,26 @@ class BasketController extends Controller
             $cart->deleteSession();
             return redirect('/basket')->with('success', 'Корзина очищена');
         }
+    }
+
+    // Подтверждение заказа
+    public function order() {
+        $data = [
+            'title' => 'Корзина товаров',
+            'basket_count' => $this->basket_count()
+        ];
+        
+        $cart = new Basket();
+
+        // Проверка сессии и вывод товаров
+        if(!$cart->isSetSession())
+            return redirect('/basket')->with('success', 'Необходимо выбрать хотя бы один товар');
+        else {
+            $products = new Product();
+            $data['products'] = $products->getProductsCart($cart->getSession());
+            $data['products_count'] = $cart->countUnitProductInBasket();
+        }
+
+        return view('basket/order', $data);
     }
 }

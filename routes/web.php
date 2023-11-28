@@ -34,3 +34,4 @@ Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Корзина
 Route::get('/basket', 'BasketController@index');
 Route::post('/basket_post', 'BasketController@post');
+Route::get('/basket/order', 'BasketController@order');
